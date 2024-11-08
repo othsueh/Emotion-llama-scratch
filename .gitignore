@@ -1,0 +1,3 @@
+checkpoints/Llama-2-7b-chat-hf
+checkpoints/save_checkpoint/*
+checkpoints/transformer/*
