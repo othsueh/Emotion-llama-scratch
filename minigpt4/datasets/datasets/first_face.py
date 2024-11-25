@@ -185,19 +185,3 @@ class FeatureFaceDataset(Dataset):
         Audio_feats = torch.tensor(np.load(Audio_feats_path))
 
         return FaceMAE_feats, VideoMAE_feats, Audio_feats
-    
-
-    def get(self, video_name):
-        # FaceMAE feature
-        FaceMAE_feats_path = os.path.join("MERR", 'mae_340_UTT', video_name + '.npy')
-        FaceMAE_feats = torch.tensor(np.load(FaceMAE_feats_path))
-
-        # VideoMAE feature
-        VideoMAE_feats_path = os.path.join("MERR", 'maeV_399_UTT', video_name + '.npy')
-        VideoMAE_feats = torch.tensor(np.load(VideoMAE_feats_path))
-
-        # Audio feature
-        Audio_feats_path = os.path.join("MERR", 'HL-UTT', video_name + '.npy')
-        Audio_feats = torch.tensor(np.load(Audio_feats_path))
-
-        return FaceMAE_feats, VideoMAE_feats, Audio_feats

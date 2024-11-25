@@ -6,6 +6,6 @@ datasets:
       # image_path: /home/user/selected_face/first_face/images
       image_path: /home/user/selected_face/first_face/first_frames
 
-      ann_path: /datas/store163/othsueh/Emotion-LLaMA/MERR/annotation/MERR_coarse_grained.txt
+      ann_path: MERR/MERR_coarse_grained.txt
       # ann_path: /home/user/selected_face/face_emotion/all_label_NCEV.txt
       # ann_path: /home/user/selected_face/face_emotion/target_label_list_0512_smp.txt
