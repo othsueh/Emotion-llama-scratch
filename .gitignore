@@ -1,3 +1,10 @@
 checkpoints/Llama-2-7b-chat-hf
 checkpoints/save_checkpoint/*
+checkpoints/run_samples
 checkpoints/transformer/*
+MERR/annotation/*
+MERR/HL-UTT
+MERR/images
+MERR/mae_340_UTT
+MERR/maeV_399_UTT
+MERR/transcription_en_all.csv

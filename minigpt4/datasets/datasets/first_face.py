@@ -81,15 +81,15 @@ class FeatureFaceDataset(Dataset):
         for ii, emo in enumerate(emos): self.emo2idx[emo] = ii
         for ii, emo in enumerate(emos): self.emo2idx[ii] = emo
 
-        json_file_path = "/home/user/selected_face/face_emotion/AU_filter_merge.json"
+        json_file_path = "MERR/annotation/MERR_coarse_grained.json"
         with open(json_file_path, 'r') as json_file:
             self.AU_filter_json = json.load(json_file)
 
-        reason_json_file_path = "/home/user/selected_face/face_emotion/0512_target_smp_end.json"
+        reason_json_file_path = "MERR/annotation/MERR_fine_grained.json"
         with open(reason_json_file_path, 'r') as json_file:
             self.reason_dict = json.load(json_file)
 
-        self.character_lines = pd.read_csv('/home/user/selected_face/face_emotion/transcription_en_all.csv')
+        self.character_lines = pd.read_csv('MERR/transcription_en_all.csv')
 
 
     def __len__(self):
@@ -99,10 +99,23 @@ class FeatureFaceDataset(Dataset):
         t = self.tmp[index]
         video_name = t[0]
 
-        image_file = '{}.jpg'.format(video_name)
-        image_path = os.path.join(self.vis_root, image_file)
-        image = Image.open(image_path).convert("RGB")
+        video_path = os.path.join(self.vis_root, video_name + ".mp4")
+        if os.path.exists(video_path):
+            image = self.extract_frame(video_path)
+        else:
+            video_path = os.path.join(self.vis_root, video_name + ".avi")
+            image = self.extract_frame(video_path)
+
+        image = Image.fromarray(image.astype('uint8'))
+        image = image.convert('RGB')
         image = self.vis_processor(image)
+
+
+        # image_file = '{}.jpg'.format(video_name)
+        # image_path = os.path.join(self.vis_root, image_file)
+        # image = Image.open(image_path).convert("RGB")
+        # image = self.vis_processor(image)
+
 
         FaceMAE_feats, VideoMAE_feats, Audio_feats = self.get(video_name)
         if len(VideoMAE_feats.shape) == 1:
@@ -169,6 +182,22 @@ class FeatureFaceDataset(Dataset):
 
         # Audio feature
         Audio_feats_path = os.path.join(self.file_path, 'HL-UTT', video_name + '.npy')
+        Audio_feats = torch.tensor(np.load(Audio_feats_path))
+
+        return FaceMAE_feats, VideoMAE_feats, Audio_feats
+    
+
+    def get(self, video_name):
+        # FaceMAE feature
+        FaceMAE_feats_path = os.path.join("MERR", 'mae_340_UTT', video_name + '.npy')
+        FaceMAE_feats = torch.tensor(np.load(FaceMAE_feats_path))
+
+        # VideoMAE feature
+        VideoMAE_feats_path = os.path.join("MERR", 'maeV_399_UTT', video_name + '.npy')
+        VideoMAE_feats = torch.tensor(np.load(VideoMAE_feats_path))
+
+        # Audio feature
+        Audio_feats_path = os.path.join("MERR", 'HL-UTT', video_name + '.npy')
         Audio_feats = torch.tensor(np.load(Audio_feats_path))
 
         return FaceMAE_feats, VideoMAE_feats, Audio_feats
