@@ -79,7 +79,7 @@ class FeatureFaceDataset(Dataset):
 
         self.emo2idx, self.idx2emo = {}, {}
         for ii, emo in enumerate(emos): self.emo2idx[emo] = ii
-        for ii, emo in enumerate(emos): self.emo2idx[ii] = emo
+        for ii, emo in enumerate(emos): self.idx2emo[ii] = emo
 
         json_file_path = "MERR/annotation/MERR_coarse_grained.json"
         with open(json_file_path, 'r') as json_file:

@@ -32,7 +32,7 @@ class FeatureFaceDataset(Dataset):
         self.text_processor = text_processor
 
         self.emotion_instruction_pool = [
-            "Please determine which emotion label in the video represents: happy, sad, neutral, angry, worried, surprise, fear, contempt, doubt.",
+            "Please determine which emotion label in the video represents: angry, happy, sad, neutral, frustrated, excited, fearful, surprised, disgusted.",
 
             # "Please determine which emotion label in the video represents: happy, sad, neutral, angry, worried, surprise.",
             # "Identify the displayed emotion in the video: is it happy, sad, neutral, angry, worried, or surprise?",
@@ -53,10 +53,10 @@ class FeatureFaceDataset(Dataset):
         print(('sample number:%d' % (len(self.tmp))))
 
         # TODO Change the logic of processing emotions
-        emos = ['neutral', 'angry','happy', 'sad', 'worried', 'surprise', 'fear', 'contempt', 'doubt']
+        emos = ["angry", "happy", "sad", "neutral", "frustrated", "excited", "fearful", "surprised", "disgusted"]
         self.emo2idx, self.idx2emo = {}, {}
         for ii, emo in enumerate(emos): self.emo2idx[emo] = ii
-        for ii, emo in enumerate(emos): self.emo2idx[ii] = emo
+        for ii, emo in enumerate(emos): self.idx2emo[ii] = emo
 
 
     def __len__(self):
@@ -66,13 +66,9 @@ class FeatureFaceDataset(Dataset):
         t = self.tmp[index]
         video_name = t['id']
 
-        video_path = os.path.join(self.vis_root, video_name + ".mp4")
+        video_path = os.path.join(self.vis_root, video_name + ".npy")
         if os.path.exists(video_path):
             image = self.extract_frame(video_path)
-        else:
-            video_path = os.path.join(self.vis_root, video_name + ".avi")
-            image = self.extract_frame(video_path)
-
         image = Image.fromarray(image.astype('uint8'))
         image = image.convert('RGB')
         image = self.vis_processor(image)
@@ -87,12 +83,12 @@ class FeatureFaceDataset(Dataset):
         video_features = torch.cat((FaceMAE_feats, VideoMAE_feats, Audio_feats), dim=0)
 
         # TODO Change the logic of processing emotions
-        caption = t[2] # llama2 putput only emotion class
+        caption = t['emotion'] # llama2 putput only emotion class
         caption = self.text_processor(caption)
         instruction_pool = self.emotion_instruction_pool
 
         task = "emotion"
-        emotion = self.emo2idx[t[2]]
+        emotion = self.emo2idx[t['emotion']]
         sentence = t['transcription']
         character_line = "The person in video says: {}. ".format(sentence)
         
@@ -108,14 +104,9 @@ class FeatureFaceDataset(Dataset):
         }
     
     def extract_frame(self, video_path):
-        video_capture = cv2.VideoCapture(video_path)
-        success, frame = video_capture.read()
-        if not success:
-            raise ValueError("Failed to read video file:", video_path)
-        frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        video_capture.release()
-
-        return frame_rgb
+        video_capture = np.load(video_path)
+        video_capture = video_capture[0]
+        return video_capture
 
     def get(self, video_name):
         # FaceMAE feature
