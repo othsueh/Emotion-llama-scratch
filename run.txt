@@ -1,0 +1,464 @@
+Script started on 2024-11-30 11:12:58+08:00 [TERM="screen" TTY="/dev/pts/14" COLUMNS="210" LINES="58"]
+bash: homebrew/bin/brew: No such file or directory
+bash: /usr/share/autojump/autojump.zsh: No such file or directory
+[?2004h[38;2;154;52;142m[0m[48;2;154;52;142m[38;2;255;255;255mothsueh [0m[48;2;218;98;125m[38;2;154;52;142m[0m[48;2;218;98;125m[38;2;255;255;255m Emotion-LLaMA [0m[48;2;252;161;125m[38;2;218;98;125m[0m[48;2;252;161;125m[38;2;255;255;255m ➜ ( main) [0m[48;2;51;101;138m[38;2;252;161;125m[0m[48;2;51;101;138m[38;2;255;255;255m ♥ 11:12 [0m[38;2;51;101;138m[0m exitps -ef | grep 27014[9Pnvidia-smi[6Phtopsource .bashrc/bin/python2 /datas/store163/othsueh/.cursor-server/extensions/ms-python.python-2024.12.3-linux-x64/python_files/printEnvVariablesToFile.py /datas/store163/othsueh/.cursor-server/extensions/ms-python.python-2024.12.3-linux-x64/python_files/deactivate/bash/envVars.txtM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[91Pgac "Update some part of emotion process and adjust input image size"
+[KM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C status[Kls[Kcd Emotion-LLaMA/ls[Kg statusac "Update some part of emotion process and adjust input image size"[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C/bin/python2 /datas/store163/othsueh/.cursor-server/extensions/ms-python.python-2024.12.3-linux-x64/python_files/printEnvVariablesToFile.py /datas/store163/othsueh/.cursor-server/extensions/ms-python.python-2024.12.3-linux-x64/python_files/deactivate/bash/envVars.txtM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csource .bashrc[K
+[KM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chtop[Knvidia-smips -ef | grep 27014exit[K[Kwhich python
+[?2004l/datas/store163/othsueh/miniconda3/bin/python
+[?2004h[38;2;154;52;142m[0m[48;2;154;52;142m[38;2;255;255;255mothsueh [0m[48;2;218;98;125m[38;2;154;52;142m[0m[48;2;218;98;125m[38;2;255;255;255m Emotion-LLaMA [0m[48;2;252;161;125m[38;2;218;98;125m[0m[48;2;252;161;125m[38;2;255;255;255m ➜ ( main) [0m[48;2;51;101;138m[38;2;252;161;125m[0m[48;2;51;101;138m[38;2;255;255;255m ♥ 11:13 [0m[38;2;51;101;138m[0m conda activate llama
+[?2004l[?2004h[38;2;154;52;142m[0m[48;2;154;52;142m[38;2;255;255;255mothsueh [0m[48;2;218;98;125m[38;2;154;52;142m[0m[48;2;218;98;125m[38;2;255;255;255m Emotion-LLaMA [0m[48;2;252;161;125m[38;2;218;98;125m[0m[48;2;252;161;125m[38;2;255;255;255m ➜ ( main) [0m[48;2;51;101;138m[38;2;252;161;125m[0m[48;2;51;101;138m[38;2;255;255;255m ♥ 11:13 [0m[38;2;51;101;138m[0m [3mCUDA_VISIBLE_DEVICES=0 torchrun  train.py --cfg-path train_configs/Emotion-LLaMA_finetune.yaml[23m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CCUDA_VISIBLE_DEVICES=0 torchrun  train.py --cfg-path train_configs/Emotion-LLaMA_finetune.yaml
+[?2004l
+===================================BUG REPORT===================================
+Welcome to bitsandbytes. For bug reports, please submit your error trace to: https://github.com/TimDettmers/bitsandbytes/issues
+================================================================================
+| distributed init (rank 0, world 1): env://
+2024-11-30 11:14:26,516 [INFO] 
+=====  Running Parameters    =====
+2024-11-30 11:14:26,517 [INFO] {
+    "amp": true,
+    "device": "cuda",
+    "dist_backend": "nccl",
+    "dist_url": "env://",
+    "distributed": true,
+    "evaluate": false,
+    "gpu": 0,
+    "init_lr": 1e-05,
+    "iters_per_epoch": 1000,
+    "job_name": "minigptv2_finetune",
+    "lr_sched": "linear_warmup_cosine_lr",
+    "max_epoch": 30,
+    "min_lr": 1e-06,
+    "num_workers": 6,
+    "output_dir": "/datas/store163/othsueh/Emotion-LLaMA/checkpoints/save_checkpoint/",
+    "rank": 0,
+    "resume_ckpt_path": null,
+    "seed": 42,
+    "task": "image_text_pretrain",
+    "train_splits": [
+        "train"
+    ],
+    "wandb_log": false,
+    "warmup_lr": 1e-06,
+    "warmup_steps": 1000,
+    "weight_decay": 0.05,
+    "world_size": 1
+}
+2024-11-30 11:14:26,517 [INFO] 
+======  Dataset Attributes  ======
+2024-11-30 11:14:26,517 [INFO] 
+======== feature_face_caption =======
+2024-11-30 11:14:26,517 [INFO] {
+    "batch_size": 1,
+    "build_info": {
+        "ann_path": "/datas/store163/othsueh/Corpus/IEMOCAP/data_collected_woother.pickle",
+        "image_path": "/datas/store163/othsueh/Corpus/IEMOCAP/processed_videoframes"
+    },
+    "data_type": "images",
+    "sample_ratio": 30,
+    "text_processor": {
+        "train": {
+            "name": "blip_caption"
+        }
+    },
+    "vis_processor": {
+        "train": {
+            "image_size": 360,
+            "name": "blip2_image_train"
+        }
+    }
+}
+2024-11-30 11:14:26,517 [INFO] 
+======  Model Attributes  ======
+2024-11-30 11:14:26,518 [INFO] {
+    "arch": "minigpt_v2",
+    "chat_template": true,
+    "ckpt": "/datas/store163/othsueh/Emotion-LLaMA/checkpoints/save_checkpoint/MERR_train_checkpoint.pth",
+    "drop_path_rate": 0,
+    "end_sym": "</s>",
+    "freeze_vit": true,
+    "image_size": 360,
+    "llama_model": "/datas/store163/othsueh/Emotion-LLaMA/checkpoints/Llama-2-7b-chat-hf",
+    "lora_alpha": 16,
+    "lora_r": 64,
+    "max_txt_len": 1024,
+    "model_type": "pretrain",
+    "prompt": "",
+    "use_grad_checkpoint": true,
+    "vit_precision": "fp16"
+}
+BaseDatasetBuilder data type: images
+2024-11-30 11:14:26,518 [INFO] Building datasets...
+ann_path:  /datas/store163/othsueh/Corpus/IEMOCAP/data_collected_woother.pickle
+sample number:9231
+2024-11-30 11:14:26,740 [INFO] Loading LLAMA
+Loading checkpoint shards:   0%|                                                                                                                                                            | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|██████████████████████████████████████████████████████████████████████████                                                                          | 1/2 [01:30<01:30, 90.12s/it]Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [02:05<00:00, 58.18s/it]Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [02:05<00:00, 62.97s/it]
+loraconfig: LoraConfig(peft_type=<PeftType.LORA: 'LORA'>, base_model_name_or_path=None, task_type='CAUSAL_LM', inference_mode=False, r=64, target_modules=['q_proj', 'v_proj'], lora_alpha=16, lora_dropout=0.05, merge_weights=False, fan_in_fan_out=False, enable_lora=None, bias='none', modules_to_save=None)
+trainable params: 33554432 || all params: 6771970048 || trainable%: 0.49548996469513035
+2024-11-30 11:18:40,780 [INFO] Loading LLAMA Done
+2024-11-30 11:18:40,780 [INFO] Loading VIT
+Position interpolate from 16x16 to 25x25
+2024-11-30 11:19:29,480 [INFO] freeze vision encoder
+2024-11-30 11:19:29,481 [INFO] Loading VIT Done
+Load Minigpt-4-LLM Checkpoint: /datas/store163/othsueh/Emotion-LLaMA/checkpoints/save_checkpoint/MERR_train_checkpoint.pth
+2024-11-30 11:19:47,994 [INFO] Start training
+2024-11-30 11:19:51,741 [INFO] dataset_ratios not specified, datasets will be concatenated (map-style datasets) or chained (webdataset.DataPipeline).
+2024-11-30 11:19:51,741 [INFO] Loaded 9231 records for train split from the dataset.
+batch sizes [[1]]
+module.llama_model.base_model.model.model.layers.0.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.0.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.0.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.0.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.1.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.1.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.1.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.1.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.2.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.2.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.2.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.2.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.3.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.3.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.3.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.3.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.4.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.4.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.4.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.4.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.5.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.5.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.5.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.5.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.6.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.6.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.6.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.6.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.7.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.7.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.7.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.7.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.8.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.8.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.8.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.8.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.9.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.9.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.9.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.9.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.10.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.10.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.10.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.10.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.11.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.11.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.11.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.11.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.12.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.12.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.12.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.12.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.13.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.13.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.13.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.13.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.14.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.14.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.14.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.14.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.15.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.15.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.15.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.15.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.16.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.16.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.16.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.16.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.17.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.17.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.17.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.17.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.18.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.18.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.18.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.18.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.19.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.19.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.19.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.19.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.20.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.20.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.20.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.20.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.21.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.21.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.21.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.21.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.22.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.22.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.22.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.22.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.23.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.23.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.23.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.23.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.24.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.24.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.24.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.24.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.25.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.25.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.25.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.25.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.26.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.26.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.26.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.26.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.27.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.27.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.27.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.27.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.28.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.28.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.28.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.28.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.29.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.29.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.29.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.29.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.30.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.30.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.30.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.30.self_attn.v_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.31.self_attn.q_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.31.self_attn.q_proj.lora_B.weight
+module.llama_model.base_model.model.model.layers.31.self_attn.v_proj.lora_A.weight
+module.llama_model.base_model.model.model.layers.31.self_attn.v_proj.lora_B.weight
+module.attention.feats_prep.0.0.weight
+module.attention.feats_prep.0.0.bias
+module.attention.feats_prep.0.3.weight
+module.attention.feats_prep.0.3.bias
+module.attention.feats_prep.1.0.weight
+module.attention.feats_prep.1.0.bias
+module.attention.feats_prep.1.3.weight
+module.attention.feats_prep.1.3.bias
+module.attention.feats_prep.2.0.weight
+module.attention.feats_prep.2.0.bias
+module.attention.feats_prep.2.3.weight
+module.attention.feats_prep.2.3.bias
+module.attention.feats_prep.3.0.weight
+module.attention.feats_prep.3.0.bias
+module.attention.feats_prep.3.3.weight
+module.attention.feats_prep.3.3.bias
+module.attention.feats_prep.4.0.weight
+module.attention.feats_prep.4.0.bias
+module.attention.feats_prep.4.3.weight
+module.attention.feats_prep.4.3.bias
+module.attention.feats_prep.5.0.weight
+module.attention.feats_prep.5.0.bias
+module.attention.feats_prep.5.3.weight
+module.attention.feats_prep.5.3.bias
+module.attention.feats_prep.6.0.weight
+module.attention.feats_prep.6.0.bias
+module.attention.feats_prep.6.3.weight
+module.attention.feats_prep.6.3.bias
+module.attention.attention_mlp.0.weight
+module.attention.attention_mlp.0.bias
+module.attention.attention_mlp.3.weight
+module.attention.attention_mlp.3.bias
+module.attention.fc_att.weight
+module.attention.fc_att.bias
+module.attention.fc_out.weight
+module.attention.fc_out.bias
+module.llama_proj.weight
+module.llama_proj.bias
+module.feats_llama_proj1.weight
+module.feats_llama_proj1.bias
+module.feats_llama_proj2.weight
+module.feats_llama_proj2.bias
+module.feats_llama_proj3.weight
+module.feats_llama_proj3.bias
+module.cls_tk_llama_proj.weight
+module.cls_tk_llama_proj.bias
+2024-11-30 11:19:51,761 [INFO] number of trainable parameters: 80470669
+2024-11-30 11:19:51,762 [INFO] Start training epoch 0, 1000 iters per inner epoch.
+2024-11-30 11:20:37,103 [WARNING] /datas/store163/othsueh/miniconda3/envs/llama/lib/python3.9/site-packages/torch/utils/checkpoint.py:31: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn("None of the inputs have requires_grad=True. Gradients will be None")
+
+[31m╭─[0m[31m──────────────────────────────[0m[31m [0m[1;31mTraceback [0m[1;2;31m(most recent call last)[0m[31m [0m[31m───────────────────────────────[0m[31m─╮[0m
+[31m│[0m [2;33m/datas/store163/othsueh/Emotion-LLaMA/[0m[1;33mtrain.py[0m:[94m97[0m in [92m<module>[0m                                    [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m   [2m94 [0m                                                                                            [31m│[0m
+[31m│[0m   [2m95 [0m                                                                                            [31m│[0m
+[31m│[0m   [2m96 [0m[94mif[0m [91m__name__[0m == [33m"[0m[33m__main__[0m[33m"[0m:                                                                  [31m│[0m
+[31m│[0m [31m❱ [0m97 [2m│   [0mmain()                                                                                  [31m│[0m
+[31m│[0m   [2m98 [0m                                                                                            [31m│[0m
+[31m│[0m   [2m99 [0m                                                                                            [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m [2;33m/datas/store163/othsueh/Emotion-LLaMA/[0m[1;33mtrain.py[0m:[94m93[0m in [92mmain[0m                                        [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m   [2m90 [0m[2m│   [0mrunner = get_runner_class(cfg)(                                                         [31m│[0m
+[31m│[0m   [2m91 [0m[2m│   │   [0mcfg=cfg, job_id=job_id, task=task, model=model, datasets=datasets                   [31m│[0m
+[31m│[0m   [2m92 [0m[2m│   [0m)                                                                                       [31m│[0m
+[31m│[0m [31m❱ [0m93 [2m│   [0mrunner.train()                                                                          [31m│[0m
+[31m│[0m   [2m94 [0m                                                                                            [31m│[0m
+[31m│[0m   [2m95 [0m                                                                                            [31m│[0m
+[31m│[0m   [2m96 [0m[94mif[0m [91m__name__[0m == [33m"[0m[33m__main__[0m[33m"[0m:                                                                  [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m [2;33m/datas/store163/othsueh/Emotion-LLaMA/minigpt4/runners/[0m[1;33mrunner_base.py[0m:[94m381[0m in [92mtrain[0m               [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m   [2m378 [0m[2m│   │   │   [0m[2m# training phase[0m                                                               [31m│[0m
+[31m│[0m   [2m379 [0m[2m│   │   │   [0m[94mif[0m [95mnot[0m [96mself[0m.evaluate_only:                                                     [31m│[0m
+[31m│[0m   [2m380 [0m[2m│   │   │   │   [0mlogging.info([33m"[0m[33mStart training[0m[33m"[0m)                                             [31m│[0m
+[31m│[0m [31m❱ [0m381 [2m│   │   │   │   [0mtrain_stats = [96mself[0m.train_epoch(cur_epoch)                                  [31m│[0m
+[31m│[0m   [2m382 [0m[2m│   │   │   │   [0m[96mself[0m.log_stats(split_name=[33m"[0m[33mtrain[0m[33m"[0m, stats=train_stats)                      [31m│[0m
+[31m│[0m   [2m383 [0m[2m│   │   │   [0m                                                                               [31m│[0m
+[31m│[0m   [2m384 [0m[2m│   │   │   [0m[2m# evaluation phase[0m                                                             [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m [2;33m/datas/store163/othsueh/Emotion-LLaMA/minigpt4/runners/[0m[1;33mrunner_base.py[0m:[94m441[0m in [92mtrain_epoch[0m         [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m   [2m438 [0m[2m│   │   [0m[2m# train[0m                                                                            [31m│[0m
+[31m│[0m   [2m439 [0m[2m│   │   [0m[96mself[0m.model.train()                                                                 [31m│[0m
+[31m│[0m   [2m440 [0m[2m│   │   [0m                                                                                   [31m│[0m
+[31m│[0m [31m❱ [0m441 [2m│   │   [0m[94mreturn[0m [96mself[0m.task.train_epoch(                                                      [31m│[0m
+[31m│[0m   [2m442 [0m[2m│   │   │   [0mepoch=epoch,                                                                   [31m│[0m
+[31m│[0m   [2m443 [0m[2m│   │   │   [0mmodel=[96mself[0m.model,                                                              [31m│[0m
+[31m│[0m   [2m444 [0m[2m│   │   │   [0mdata_loader=[96mself[0m.train_loader,                                                 [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m [2;33m/datas/store163/othsueh/Emotion-LLaMA/minigpt4/tasks/[0m[1;33mbase_task.py[0m:[94m120[0m in [92mtrain_epoch[0m             [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m   [2m117 [0m[2m│   │   [0mlog_freq=[94m50[0m,                                                                       [31m│[0m
+[31m│[0m   [2m118 [0m[2m│   │   [0maccum_grad_iters=[94m1[0m,                                                                [31m│[0m
+[31m│[0m   [2m119 [0m[2m│   [0m):                                                                                     [31m│[0m
+[31m│[0m [31m❱ [0m120 [2m│   │   [0m[94mreturn[0m [96mself[0m._train_inner_loop(                                                     [31m│[0m
+[31m│[0m   [2m121 [0m[2m│   │   │   [0mepoch=epoch,                                                                   [31m│[0m
+[31m│[0m   [2m122 [0m[2m│   │   │   [0miters_per_epoch=lr_scheduler.iters_per_epoch,                                  [31m│[0m
+[31m│[0m   [2m123 [0m[2m│   │   │   [0mmodel=model,                                                                   [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m [2;33m/datas/store163/othsueh/Emotion-LLaMA/minigpt4/tasks/[0m[1;33mbase_task.py[0m:[94m229[0m in [92m_train_inner_loop[0m       [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m   [2m226 [0m[2m│   │   │   [0mlr_scheduler.step(cur_epoch=inner_epoch, cur_step=i)                           [31m│[0m
+[31m│[0m   [2m227 [0m[2m│   │   │   [0m                                                                               [31m│[0m
+[31m│[0m   [2m228 [0m[2m│   │   │   [0m[94mwith[0m torch.cuda.amp.autocast(enabled=use_amp):                                 [31m│[0m
+[31m│[0m [31m❱ [0m229 [2m│   │   │   │   [0mloss = [96mself[0m.train_step(model=model, samples=samples)                       [31m│[0m
+[31m│[0m   [2m230 [0m[2m│   │   │   [0m                                                                               [31m│[0m
+[31m│[0m   [2m231 [0m[2m│   │   │   [0m[2m# after_train_step()[0m                                                           [31m│[0m
+[31m│[0m   [2m232 [0m[2m│   │   │   [0m[94mif[0m use_amp:                                                                    [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m [2;33m/datas/store163/othsueh/Emotion-LLaMA/minigpt4/tasks/[0m[1;33mbase_task.py[0m:[94m70[0m in [92mtrain_step[0m               [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m   [2m 67 [0m[2m│   │   [0m[94mreturn[0m datasets                                                                    [31m│[0m
+[31m│[0m   [2m 68 [0m[2m│   [0m                                                                                       [31m│[0m
+[31m│[0m   [2m 69 [0m[2m│   [0m[94mdef[0m [92mtrain_step[0m([96mself[0m, model, samples):                                                  [31m│[0m
+[31m│[0m [31m❱ [0m 70 [2m│   │   [0moutputs = model(samples)                                                           [31m│[0m
+[31m│[0m   [2m 71 [0m[2m│   │   [0m[2m# loss = outputs["loss"] + outputs["emos_loss"][0m                                    [31m│[0m
+[31m│[0m   [2m 72 [0m[2m│   │   [0mloss = outputs[[33m"[0m[33memos_loss[0m[33m"[0m]                                                        [31m│[0m
+[31m│[0m   [2m 73 [0m[2m│   │   [0m[2m# print(outputs["loss"], outputs["emos_loss"], torch.argmax(outputs['emos_pred'][0m   [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m [2;33m/datas/store163/othsueh/miniconda3/envs/llama/lib/python3.9/site-packages/torch/nn/modules/[0m[1;33mmodul[0m [31m│[0m
+[31m│[0m [1;33me.py[0m:[94m1501[0m in [92m_call_impl[0m                                                                          [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m   [2m1498 [0m[2m│   │   [0m[94mif[0m [95mnot[0m ([96mself[0m._backward_hooks [95mor[0m [96mself[0m._backward_pre_hooks [95mor[0m [96mself[0m._forward_hooks   [31m│[0m
+[31m│[0m   [2m1499 [0m[2m│   │   │   │   [0m[95mor[0m _global_backward_pre_hooks [95mor[0m _global_backward_hooks                   [31m│[0m
+[31m│[0m   [2m1500 [0m[2m│   │   │   │   [0m[95mor[0m _global_forward_hooks [95mor[0m _global_forward_pre_hooks):                   [31m│[0m
+[31m│[0m [31m❱ [0m1501 [2m│   │   │   [0m[94mreturn[0m forward_call(*args, **kwargs)                                          [31m│[0m
+[31m│[0m   [2m1502 [0m[2m│   │   [0m[2m# Do not call functions when jit is used[0m                                          [31m│[0m
+[31m│[0m   [2m1503 [0m[2m│   │   [0mfull_backward_hooks, non_full_backward_hooks = [], []                             [31m│[0m
+[31m│[0m   [2m1504 [0m[2m│   │   [0mbackward_pre_hooks = []                                                           [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m [2;33m/datas/store163/othsueh/miniconda3/envs/llama/lib/python3.9/site-packages/torch/nn/parallel/[0m[1;33mdist[0m [31m│[0m
+[31m│[0m [1;33mributed.py[0m:[94m1156[0m in [92mforward[0m                                                                       [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m   [2m1153 [0m[2m│   │   │   │   │   [0mis_joined_rank=[94mFalse[0m                                                  [31m│[0m
+[31m│[0m   [2m1154 [0m[2m│   │   │   │   [0m)                                                                         [31m│[0m
+[31m│[0m   [2m1155 [0m[2m│   │   │   [0m                                                                              [31m│[0m
+[31m│[0m [31m❱ [0m1156 [2m│   │   │   [0moutput = [96mself[0m._run_ddp_forward(*inputs, **kwargs)                             [31m│[0m
+[31m│[0m   [2m1157 [0m[2m│   │   │   [0m                                                                              [31m│[0m
+[31m│[0m   [2m1158 [0m[2m│   │   │   [0m[2m# sync params according to location (before/after forward) user[0m               [31m│[0m
+[31m│[0m   [2m1159 [0m[2m│   │   │   [0m[2m# specified as part of hook, if hook was specified.[0m                           [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m [2;33m/datas/store163/othsueh/miniconda3/envs/llama/lib/python3.9/site-packages/torch/nn/parallel/[0m[1;33mdist[0m [31m│[0m
+[31m│[0m [1;33mributed.py[0m:[94m1110[0m in [92m_run_ddp_forward[0m                                                              [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m   [2m1107 [0m[2m│   │   │   │   [0m[96mself[0m.use_side_stream_for_tensor_copies,                                   [31m│[0m
+[31m│[0m   [2m1108 [0m[2m│   │   │   [0m)                                                                             [31m│[0m
+[31m│[0m   [2m1109 [0m[2m│   │   │   [0m[94mwith[0m [96mself[0m._inside_ddp_forward():                                              [31m│[0m
+[31m│[0m [31m❱ [0m1110 [2m│   │   │   │   [0m[94mreturn[0m module_to_run(*inputs[[94m0[0m], **kwargs[[94m0[0m])  [2m# type: ignore[index][0m      [31m│[0m
+[31m│[0m   [2m1111 [0m[2m│   │   [0m[94melse[0m:                                                                             [31m│[0m
+[31m│[0m   [2m1112 [0m[2m│   │   │   [0m[94mwith[0m [96mself[0m._inside_ddp_forward():                                              [31m│[0m
+[31m│[0m   [2m1113 [0m[2m│   │   │   │   [0m[94mreturn[0m module_to_run(*inputs, **kwargs)                                   [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m [2;33m/datas/store163/othsueh/miniconda3/envs/llama/lib/python3.9/site-packages/torch/nn/modules/[0m[1;33mmodul[0m [31m│[0m
+[31m│[0m [1;33me.py[0m:[94m1501[0m in [92m_call_impl[0m                                                                          [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m   [2m1498 [0m[2m│   │   [0m[94mif[0m [95mnot[0m ([96mself[0m._backward_hooks [95mor[0m [96mself[0m._backward_pre_hooks [95mor[0m [96mself[0m._forward_hooks   [31m│[0m
+[31m│[0m   [2m1499 [0m[2m│   │   │   │   [0m[95mor[0m _global_backward_pre_hooks [95mor[0m _global_backward_hooks                   [31m│[0m
+[31m│[0m   [2m1500 [0m[2m│   │   │   │   [0m[95mor[0m _global_forward_hooks [95mor[0m _global_forward_pre_hooks):                   [31m│[0m
+[31m│[0m [31m❱ [0m1501 [2m│   │   │   [0m[94mreturn[0m forward_call(*args, **kwargs)                                          [31m│[0m
+[31m│[0m   [2m1502 [0m[2m│   │   [0m[2m# Do not call functions when jit is used[0m                                          [31m│[0m
+[31m│[0m   [2m1503 [0m[2m│   │   [0mfull_backward_hooks, non_full_backward_hooks = [], []                             [31m│[0m
+[31m│[0m   [2m1504 [0m[2m│   │   [0mbackward_pre_hooks = []                                                           [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m [2;33m/datas/store163/othsueh/Emotion-LLaMA/minigpt4/models/[0m[1;33mminigpt_base.py[0m:[94m359[0m in [92mforward[0m             [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m   [2m356 [0m[2m│   │   [0m                                                                                   [31m│[0m
+[31m│[0m   [2m357 [0m[2m│   │   [0m[2m# prepare the embedding to condition and the embedding to regress[0m                  [31m│[0m
+[31m│[0m   [2m358 [0m[2m│   │   [0mcond_embeds, cond_atts, regress_embeds, regress_atts, part_targets = \             [31m│[0m
+[31m│[0m [31m❱ [0m359 [2m│   │   │   [0m[96mself[0m.preparing_embedding(samples)                                              [31m│[0m
+[31m│[0m   [2m360 [0m[2m│   │   [0m                                                                                   [31m│[0m
+[31m│[0m   [2m361 [0m[2m│   │   [0m[2m# concat the embedding to condition and the embedding to regress[0m                   [31m│[0m
+[31m│[0m   [2m362 [0m[2m│   │   [0minputs_embeds, attention_mask, input_lens = \                                      [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m [2;33m/datas/store163/othsueh/Emotion-LLaMA/minigpt4/models/[0m[1;33mminigpt_base.py[0m:[94m293[0m in [92mpreparing_embedding[0m [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m   [2m290 [0m[2m│   │   [0m[2m### prepare input tokens[0m                                                           [31m│[0m
+[31m│[0m   [2m291 [0m[2m│   │   [0m[94mif[0m [33m'[0m[33mimage[0m[33m'[0m [95min[0m samples:                                                             [31m│[0m
+[31m│[0m   [2m292 [0m[2m│   │   │   [0m[2m# img_embeds, img_atts = self.encode_img(samples["image"])[0m                     [31m│[0m
+[31m│[0m [31m❱ [0m293 [2m│   │   │   [0mimg_embeds, img_atts = [96mself[0m.encode_img(samples[[33m"[0m[33mimage[0m[33m"[0m], samples[[33m"[0m[33mvideo_feat[0m   [31m│[0m
+[31m│[0m   [2m294 [0m[2m│   │   [0m[94melse[0m:                                                                              [31m│[0m
+[31m│[0m   [2m295 [0m[2m│   │   │   [0mimg_embeds = img_atts = [94mNone[0m                                                   [31m│[0m
+[31m│[0m   [2m296 [0m                                                                                           [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m [2;33m/datas/store163/othsueh/Emotion-LLaMA/minigpt4/models/[0m[1;33mminigpt_v2.py[0m:[94m104[0m in [92mencode_img[0m            [31m│[0m
+[31m│[0m                                                                                                  [31m│[0m
+[31m│[0m   [2m101 [0m[2m│   │   │   [0mcls_tk_feats = [96mself[0m.cls_tk_llama_proj(image_cls_tk)    [2m# [1, 1, 4096][0m          [31m│[0m
+[31m│[0m   [2m102 [0m[2m│   │   │   [0mimage_embeds = image_embeds[:, [94m1[0m:, :]       [2m# [1, 1024, 1408][0m                  [31m│[0m
+[31m│[0m   [2m103 [0m[2m│   │   │   [0mbs, pn, hs = image_embeds.shape                                                [31m│[0m
+[31m│[0m [31m❱ [0m104 [2m│   │   │   [0mimage_embeds = image_embeds.view(bs, [96mint[0m(pn / [94m4[0m), [96mint[0m(hs * [94m4[0m))  [2m# [1, 256, 5[0m   [31m│[0m
+[31m│[0m   [2m105 [0m[2m│   │   │   [0mimage_inputs_llama = [96mself[0m.llama_proj(image_embeds)    [2m# [1, 256, 4096][0m         [31m│[0m
+[31m│[0m   [2m106 [0m[2m│   │   │   [0mvideo_features = video_features.to(device)   [2m# [1, 3, 1024][0m                    [31m│[0m
+[31m│[0m   [2m107 [0m[2m│   │   │   [0mvideo_features_split = torch.split(video_features, [94m1[0m, dim=[94m1[0m)                   [31m│[0m
+[31m╰──────────────────────────────────────────────────────────────────────────────────────────────────╯[0m
+[1;91mRuntimeError: [0mshape [32m'[0m[32m[[0m[32m1, 156, 5632[0m[32m][0m[32m'[0m is invalid for input of size [1;36m880000[0m
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 2424171) of binary: /datas/store163/othsueh/miniconda3/envs/llama/bin/python
+Traceback (most recent call last):
+  File "/datas/store163/othsueh/miniconda3/envs/llama/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/datas/store163/othsueh/miniconda3/envs/llama/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/datas/store163/othsueh/miniconda3/envs/llama/lib/python3.9/site-packages/torch/distributed/run.py", line 794, in main
+    run(args)
+  File "/datas/store163/othsueh/miniconda3/envs/llama/lib/python3.9/site-packages/torch/distributed/run.py", line 785, in run
+    elastic_launch(
+  File "/datas/store163/othsueh/miniconda3/envs/llama/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/datas/store163/othsueh/miniconda3/envs/llama/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 250, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2024-11-30_11:20:51
+  host      : plusle
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 2424171)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+[?2004h[38;2;154;52;142m[0m[48;2;154;52;142m[38;2;255;255;255mothsueh [0m[48;2;218;98;125m[38;2;154;52;142m[0m[48;2;218;98;125m[38;2;255;255;255m Emotion-LLaMA [0m[48;2;252;161;125m[38;2;218;98;125m[0m[48;2;252;161;125m[38;2;255;255;255m ➜ ( main) [0m[48;2;51;101;138m[38;2;252;161;125m[0m[48;2;51;101;138m[38;2;255;255;255m ♥ 11:20 [0m[38;2;51;101;138m[0m [?2004l
+exit
+
+Script done on 2024-11-30 11:21:23+08:00 [COMMAND_EXIT_CODE="1"]

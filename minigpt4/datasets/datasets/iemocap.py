@@ -53,10 +53,11 @@ class FeatureFaceDataset(Dataset):
         print(('sample number:%d' % (len(self.tmp))))
 
         # TODO Change the logic of processing emotions
-        emos = ["angry", "happy", "sad", "neutral", "frustrated", "excited", "fearful", "surprised", "disgusted"]
-        self.emo2idx, self.idx2emo = {}, {}
+        emos = ["angry", "happy", "sad", "neutral", "frustrated", "excited", "fearful", "surprised", "disgusted","other"]
+        self.emo2fullemo = {}
+        self.emo2idx = {}
+        for ii,emo in enumerate(emos): self.emo2fullemo[emo[:3]] = emo
         for ii, emo in enumerate(emos): self.emo2idx[emo] = ii
-        for ii, emo in enumerate(emos): self.idx2emo[ii] = emo
 
 
     def __len__(self):
@@ -69,8 +70,6 @@ class FeatureFaceDataset(Dataset):
         video_path = os.path.join(self.vis_root, video_name + ".npy")
         if os.path.exists(video_path):
             image = self.extract_frame(video_path)
-        image = Image.fromarray(image.astype('uint8'))
-        image = image.convert('RGB')
         image = self.vis_processor(image)
 
         FaceMAE_feats, VideoMAE_feats, Audio_feats = self.get(video_name)
@@ -83,12 +82,14 @@ class FeatureFaceDataset(Dataset):
         video_features = torch.cat((FaceMAE_feats, VideoMAE_feats, Audio_feats), dim=0)
 
         # TODO Change the logic of processing emotions
-        caption = t['emotion'] # llama2 putput only emotion class
+        origin_emo = t['emotion']
+        full_emo = self.emo2fullemo[origin_emo]
+        caption = full_emo # llama2 putput only emotion class
         caption = self.text_processor(caption)
         instruction_pool = self.emotion_instruction_pool
 
         task = "emotion"
-        emotion = self.emo2idx[t['emotion']]
+        emotion = self.emo2idx[full_emo]
         sentence = t['transcription']
         character_line = "The person in video says: {}. ".format(sentence)
         
@@ -106,7 +107,24 @@ class FeatureFaceDataset(Dataset):
     def extract_frame(self, video_path):
         video_capture = np.load(video_path)
         video_capture = video_capture[0]
-        return video_capture
+        pil_image = Image.fromarray(video_capture)
+        # Calculate scaling factor to ensure the smaller dimension is at least 224
+        width, height = pil_image.size
+        scale = max(224/width, 224/height)
+
+        # Resize while maintaining aspect ratio
+        resized_image = pil_image.resize((int(width*scale), int(height*scale)))
+
+        # Calculate coordinates for center crop
+        width, height = resized_image.size
+        left = (width - 224)/2
+        top = (height - 224)/2
+        right = left + 224
+        bottom = top + 224
+
+        # Perform center crop
+        cropped_image = resized_image.crop((left, top, right, bottom))
+        return cropped_image
 
     def get(self, video_name):
         # FaceMAE feature

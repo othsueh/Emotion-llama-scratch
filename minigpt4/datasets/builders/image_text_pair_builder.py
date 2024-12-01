@@ -5,7 +5,7 @@ import warnings
 from minigpt4.common.registry import registry
 from minigpt4.datasets.builders.base_dataset_builder import BaseDatasetBuilder
 
-from minigpt4.datasets.datasets.first_face import FeatureFaceDataset
+from minigpt4.datasets.datasets.iemocap import FeatureFaceDataset
 
 # FeatureFaceDataset
 @registry.register_builder("feature_face_caption")

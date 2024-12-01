@@ -15,9 +15,11 @@ from minigpt4.common.eval_utils import prepare_texts, init_model, eval_parser, c
 from minigpt4.conversation.conversation import CONV_VISION_minigptv2
 from minigpt4.common.registry import registry
 
-from minigpt4.datasets.datasets.first_face import FeatureFaceDataset
+from minigpt4.datasets.datasets.iemocap import FeatureFaceDataset
 
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
+import matplotlib.pyplot as plt
+import seaborn as sn
 from minigpt4.datasets.data_utils import prepare_sample
 
 
@@ -52,7 +54,7 @@ vis_processor = registry.get_processor_class(vis_processor_cfg.name).from_config
 print(args.dataset)
 if 'feature_face_caption' in args.dataset:
     eval_file_path = cfg.evaluation_datasets_cfg["feature_face_caption"]["eval_file_path"]
-    img_path = cfg.evaluation_datasets_cfg["feature_face_caption"]["img_path"]
+    img_path = cfg.evaluation_datasets_cfg["feature_face_caption"]["image_path"]
     batch_size = cfg.evaluation_datasets_cfg["feature_face_caption"]["batch_size"]
     max_new_tokens = cfg.evaluation_datasets_cfg["feature_face_caption"]["max_new_tokens"]
     print(eval_file_path)
@@ -83,7 +85,7 @@ if 'feature_face_caption' in args.dataset:
             # print("raw answer:", answers[j])
             answers[j] = answers[j].split(" ")[-1]
             targets[j] = targets[j].split(" ")[-1]
-            if answers[j] not in ['neutral', 'angry', 'happy', 'sad', 'worried', 'surprise']:
+            if answers[j] not in ["angry", "happy", "sad", "neutral", "frustrated", "excited", "fearful", "surprised", "disgusted","other"]:
                 print("Error: ", answers[j], " Target:", targets[j])
                 answers[j] = 'neutral'
         
@@ -95,13 +97,30 @@ if 'feature_face_caption' in args.dataset:
     precision = precision_score(targets_list, answers_list, average='weighted')
     recall = recall_score(targets_list, answers_list, average='weighted')
     f1 = f1_score(targets_list, answers_list, average='weighted')
+    
+    # Save results to a file
+    with open(os.path.join(save_path, 'eval_results.txt'), 'w') as f:
+        f.write(f"Accuracy: {accuracy:.4f}\n")
+        f.write(f"Precision: {precision:.4f}\n")
+        f.write(f"Recall: {recall:.4f}\n")
+        f.write(f"F1 Score: {f1:.4f}\n")
+        f.write("Targets: " + ', '.join(targets_list) + "\n")
+        f.write("Answers: " + ', '.join(answers_list) + "\n")
+    # Plot confusion matrix
+    emotion_list = ["angry", "happy", "sad", "neutral", "frustrated", "excited", "fearful", "surprised", "disgusted", "other"]
+    cm = confusion_matrix(targets_list, answers_list, labels=emotion_list)
+    plt.figure(figsize=(10, 8))
+    sn.heatmap(cm, annot=True, cmap="mako_r", xticklabels=emotion_list, yticklabels=emotion_list)
+    plt.title('Confusion Matrix')
+    plt.xlabel('Predicted label')
+    plt.ylabel('True label')
+    plt.savefig(os.path.join(save_path, 'confusion_matrix.png'))
+    plt.close()
 
     print("Accuracy:", accuracy)
     print("Precision:", precision)
     print("Recall:", recall)
     print("F1 Score:", f1)
-
-    cm = confusion_matrix(targets_list, answers_list)
     print(cm)
     
 # torchrun  --nproc_per_node 1 eval_emotion.py --cfg-path eval_configs/eval_emotion.yaml --dataset feature_face_caption

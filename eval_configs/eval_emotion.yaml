@@ -5,8 +5,8 @@ model:
   end_sym: "</s>"
   low_resource: False
   prompt_template: '[INST] {} [/INST]'
-  llama_model: "/home/user/project/Emotion-LLaMA/checkpoints/Llama-2-7b-chat-hf"
-  ckpt: "/home/user/project/Emotion-LLaMA/checkpoints/save_checkpoint/stage2/checkpoint_best.pth"
+  llama_model: "/datas/store163/othsueh/Emotion-LLaMA/checkpoints/Llama-2-7b-chat-hf"
+  ckpt: "/datas/store163/othsueh/Emotion-LLaMA/checkpoints/save_checkpoint/20241130122/checkpoint_29.pth"
   lora_r: 64
   lora_alpha: 16
 
@@ -16,7 +16,7 @@ datasets:
     vis_processor:
       train:
         name: "blip2_image_train"
-        image_size: 448
+        image_size: 224
     text_processor:
       train:
         name: "blip_caption"
@@ -24,12 +24,9 @@ datasets:
 
 evaluation_datasets:
   feature_face_caption:
-    eval_file_path: /home/user/selected_face/face_emotion/relative_test3_NCEV.txt # MER2023
+    eval_file_path: /datas/store163/othsueh/Corpus/IEMOCAP/data_collected_woother_5.pickle
 
-    img_path: /home/user/selected_face/first_face/first_frames
-
-    # eval_file_path: /home/user/selected_face/DFEW/reltive_DFEW_set_1_test.txt
-    # img_path: /home/user/selected_face/DFEW/images     
+    image_path: /datas/store163/othsueh/Corpus/IEMOCAP/processed_videoframes
 
     max_new_tokens: 500
     batch_size: 1
@@ -37,4 +34,4 @@ evaluation_datasets:
 run:
   task: image_text_pretrain
   name: minigptv2_evaluation
-  save_path: /home/user/project/Emotion-LLaMA/results
+  save_path: /datas/store163/othsueh/Emotion-LLaMA/results
