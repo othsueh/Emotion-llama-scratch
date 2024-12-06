@@ -1,37 +1,33 @@
-model:
-  arch: minigpt_v2
-  model_type: pretrain
-  max_txt_len: 500
-  end_sym: "</s>"
-  low_resource: False
-  prompt_template: '[INST] {} [/INST]'
-  llama_model: "/datas/store163/othsueh/Emotion-LLaMA/checkpoints/Llama-2-7b-chat-hf"
-  ckpt: "/datas/store163/othsueh/Emotion-LLaMA/checkpoints/save_checkpoint/20241130122/checkpoint_29.pth"
-  lora_r: 64
-  lora_alpha: 16
-
-datasets:    
-  feature_face_caption:  #
+datasets:
+  feature_face_caption:
     batch_size: 1
-    vis_processor:
-      train:
-        name: "blip2_image_train"
-        image_size: 224
+    sample_ratio: 30
     text_processor:
       train:
-        name: "blip_caption"
-    sample_ratio: 30
-
+        name: blip_caption
+    vis_processor:
+      train:
+        image_size: 224
+        name: blip2_image_train
 evaluation_datasets:
   feature_face_caption:
-    eval_file_path: /datas/store163/othsueh/Corpus/IEMOCAP/data_collected_woother_5.pickle
-
-    image_path: /datas/store163/othsueh/Corpus/IEMOCAP/processed_videoframes
-
-    max_new_tokens: 500
     batch_size: 1
-
+    eval_file_path: /datas/store163/othsueh/Corpus/IEMOCAP/Cross_validation/data_collected_woother_test.pickle
+    image_path: /datas/store163/othsueh/Corpus/IEMOCAP/processed_videoframes
+    max_new_tokens: 500
+model:
+  arch: minigpt_v2
+  ckpt: /datas/store163/othsueh/Emotion-LLaMA/checkpoints/save_checkpoint/ckpt_fold_5/checkpoint_29.pth
+  end_sym: </s>
+  llama_model: /datas/store163/othsueh/Emotion-LLaMA/checkpoints/Llama-2-7b-chat-hf
+  lora_alpha: 16
+  lora_r: 64
+  low_resource: false
+  max_txt_len: 500
+  model_type: pretrain
+  prompt_template: '[INST] {} [/INST]'
 run:
-  task: image_text_pretrain
+  cross_turn: test
   name: minigptv2_evaluation
   save_path: /datas/store163/othsueh/Emotion-LLaMA/results
+  task: image_text_pretrain

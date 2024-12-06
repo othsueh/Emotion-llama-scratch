@@ -44,6 +44,7 @@ conv_temp = CONV_VISION.copy()
 conv_temp.system = ""
 
 save_path = cfg.run_cfg.save_path
+cross_turn = cfg.run_cfg.cross_turn
 
 text_processor_cfg = cfg.datasets_cfg.feature_face_caption.text_processor.train
 text_processor = registry.get_processor_class(text_processor_cfg.name).from_config(text_processor_cfg)
@@ -97,29 +98,31 @@ if 'feature_face_caption' in args.dataset:
     precision = precision_score(targets_list, answers_list, average='weighted')
     recall = recall_score(targets_list, answers_list, average='weighted')
     f1 = f1_score(targets_list, answers_list, average='weighted')
+    macro_f1 = f1_score(targets_list, answers_list, average='macro')
     
     # Save results to a file
-    with open(os.path.join(save_path, 'eval_results.txt'), 'w') as f:
+    with open(os.path.join(save_path, f'eval_results_cross{cross_turn}.txt'), 'w') as f:
         f.write(f"Accuracy: {accuracy:.4f}\n")
         f.write(f"Precision: {precision:.4f}\n")
         f.write(f"Recall: {recall:.4f}\n")
+        f.write(f"Macro F1 Score: {macro_f1:.4f}\n")
         f.write(f"F1 Score: {f1:.4f}\n")
-        f.write("Targets: " + ', '.join(targets_list) + "\n")
-        f.write("Answers: " + ', '.join(answers_list) + "\n")
     # Plot confusion matrix
-    emotion_list = ["angry", "happy", "sad", "neutral", "frustrated", "excited", "fearful", "surprised", "disgusted", "other"]
+    # emotion_list = ["angry", "happy", "sad", "neutral", "frustrated", "excited", "fearful", "surprised", "disgusted", "other"]
+    emotion_list = ["angry", "happy", "sad", "neutral", "frustrated", "excited", "fearful", "surprised", "disgusted"]
     cm = confusion_matrix(targets_list, answers_list, labels=emotion_list)
     plt.figure(figsize=(10, 8))
     sn.heatmap(cm, annot=True, cmap="mako_r", xticklabels=emotion_list, yticklabels=emotion_list)
     plt.title('Confusion Matrix')
     plt.xlabel('Predicted label')
     plt.ylabel('True label')
-    plt.savefig(os.path.join(save_path, 'confusion_matrix.png'))
+    plt.savefig(os.path.join(save_path, f'eval_results_cross{cross_turn}.png'))
     plt.close()
 
     print("Accuracy:", accuracy)
     print("Precision:", precision)
     print("Recall:", recall)
+    print("Macro F1 Score:", macro_f1)
     print("F1 Score:", f1)
     print(cm)
     
